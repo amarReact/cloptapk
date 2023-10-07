@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# node_modules
+node_modules
+
+# Expo related
+.expo
+node_modules/.bin/expo
+
+# npm package files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Gradle files
+android/.gradle
+android/build
+
+# Android generated files
+android/app/build
+
+# iOS build files
+ios/build
+ios/Pods
+ios/Podfile.lock
+ios/Podfile

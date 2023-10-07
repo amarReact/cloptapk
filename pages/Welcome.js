@@ -9,66 +9,86 @@ const Welcome = () => {
 
   return (
     <View style={styles.container}>
-      <Logo />
-
-      <View style={styles.boxDv}>
-        <Image
-          source={{ uri: "https://cloftware.com/images/abc.png" }}
-          style={styles.image}
-        />
-        <Text style={styles.pera}>
-          We are a team of skilled professionals with 10+ years of experience in
-          cloud-based solutions. Our technical expertise and customer-centric
-          approach have enabled us to successfully deliver multiple projects
-          across diverse industries.
-        </Text>
+      <View style={styles.holder}>
+        <View style={styles.logo}>
+          <Logo />
+        </View>
+        <View style={styles.boxDv}>
+            <Text style={styles.pera}>
+              Welcome to MIET School
+            </Text>
+            <Image
+              source={require('../assets/school-image.jpeg')}
+              style={styles.image}
+            />
+            <View style={styles.button}>
+            <Buttons
+              title="Get Started"
+              
+              onPress={() => navigation.navigate("Login")}
+            />
+            </View>
+        </View>
+        <View style={styles.bottomimg}>
+          <Text style={styles.heading}>Powered By:</Text>
+          <Logo />
+        </View>
       </View>
-
-      <Text style={styles.heading}>Welcome Cloftware Technology</Text>
-
-      <Buttons
-        title="Get Started"
-        onPress={() => navigation.navigate("Login")}
-      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "flex-start",
+    justifyContent: "center",
     alignItems: "center",
-    paddingVertical: 30,
-    paddingHorizontal: 25,
+    flex:1,
     backgroundColor: "#F1F5F7",
+  },
+  holder:{
+    justifyContent: "center",
+    alignItems: "center",
   },
   boxDv: {
     textAlign: "center",
     marginTop: "auto",
-    flex: 1,
+    backgroundColor:'pink',
     justifyContent: "center",
     alignItems: "center",
+    paddingHorizontal:25,
+    borderRadius:11
+  },
+  bottomimg :{
+    marginTop:40
   },
   heading: {
     fontSize: 16,
-    marginBottom: 10,
+    marginBottom: 20,
     fontWeight: "500",
     marginTop: "auto",
     color: "#FF5315",
+    textAlign:'center'
   },
   pera: {
-    fontSize: 14,
-    lineHeight: 22,
-    marginBottom: 10,
+    fontSize: 35,
+    lineHeight: 38,
+    paddingBottom: 30,
+    paddingTop:30,
     fontWeight: "400",
     color: "#34495E",
     textAlign: "center",
-    marginTop: 20,
+    
+  },
+  logo:{
+    marginBottom:40,
   },
   image: {
-    width: 300,
-    height: 200,
+    width:130,
+    height:100,
+    marginBottom:30
+  },
+  button:{
+    marginBottom:30
   },
   logoImg: {
     width: 200,

@@ -10,15 +10,10 @@ import {
 
 const Tables = ({ data, columns, onRowPress, renderRowActions }) => {
   const [searchText, setSearchText] = useState("");
-
-  const filteredData = data.filter(
-    (item) =>
-      item.name.toLowerCase().includes(searchText.toLowerCase()) ||
-      item.description.toLowerCase().includes(searchText.toLowerCase())
-  );
+  const filteredData = data;
 
   const renderItem = ({ item }) => (
-    <TouchableOpacity onPress={() => onRowPress(item)}>
+
       <View style={styles.row}>
         {columns.map((column, index) => (
           <View key={index} style={styles.cellParent}>
@@ -40,20 +35,14 @@ const Tables = ({ data, columns, onRowPress, renderRowActions }) => {
               <TouchableOpacity
                style={styles.actionsBtn}
                 key={index}
-                // onClick={() => action.onClick(row)}
-                // onPress={() => handleDetailAction(item)}
+                onPress={() => action?.onPress ? action?.onPress(item) : null}
               >
-                <Text style={styles.actionsBtnText}>{action.label}</Text>
+                <Text style={styles.actionsBtnText}>{action?.label}</Text>
               </TouchableOpacity>
             ))}
           </View>
         )}
-
-        {/* <View style={styles.actions}>
-          {renderRowActions && renderRowActions(item)}
-        </View> */}
       </View>
-    </TouchableOpacity>
   );
 
   return (
@@ -66,19 +55,8 @@ const Tables = ({ data, columns, onRowPress, renderRowActions }) => {
       />
       <FlatList
         data={filteredData}
-        keyExtractor={(item) => item.id.toString()}
+        keyExtractor={(item) => item?.id?.toString()}
         renderItem={renderItem}
-        
-        // ListHeaderComponent={() => (
-        //   <View style={styles.row}>
-        //     {columns.map((column, index) => (
-        //       <Text key={index} style={styles.cell}>
-        //         {column.header}
-        //       </Text>
-        //     ))}
-        //     <Text style={styles.actionsHeader}>Actions</Text>
-        //   </View>
-        // )}
       />
     </View>
   );
