@@ -15,7 +15,7 @@ const Welcome = () => {
         </View>
         <View style={styles.boxDv}>
             <Text style={styles.pera}>
-              Welcome to MIET School
+              Welcome to MIET School2
             </Text>
             <Image
               source={require('../assets/school-image.jpeg')}
