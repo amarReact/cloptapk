@@ -19,6 +19,7 @@ const LoginList = ({ data }) => {
   };
   const [formData, setFormData] = useState(formList);
   const [errors, setErrors] = useState({});
+  
   const {logIn, logOut} = useContext(AuthContext)
   
   const handleChange = (name, value) => {

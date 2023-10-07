@@ -15,6 +15,9 @@ import React from 'react';
 // import AlternateApproachesScreen from '../screens/AlternateApproachesScreen';
 import Welcome from '../pages/Welcome';
 import Login from '../pages/Login';
+import Otp from '../pages/Otp';
+import Teacher from '../pages/Teacher';
+import Forgotpassword from '../pages/Forgotpassword';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Header from '../component/Header';
 // import LoginScreen from '../screens/LoginScreen';
@@ -46,7 +49,7 @@ import Header from '../component/Header';
 // import TrackYourApplication from '../screens/TrackYourApplication';
 const Stack = createNativeStackNavigator();
 
-const AuthStack = () => {
+const AppStack = ({token}) => {
   
   return (
     
@@ -57,7 +60,9 @@ const AuthStack = () => {
         <Stack.Screen name='Login' component={Login} 
         
         />
-      
+      <Stack.Screen name='Otp' component={Otp}/>
+      {token && <Stack.Screen name='Teacher' component={Teacher}/>}
+      <Stack.Screen name='Forgotpassword' component={Forgotpassword}/>
         {/* <Stack.Screen name='Register' component={RegisterScreen }/>
         <Stack.Screen name='About' component={AboutUsScreen }/>
         <Stack.Screen name='Tree' component={TreeScreen }/>
@@ -102,4 +107,4 @@ const AuthStack = () => {
   );
 };
 
-export default AuthStack;
+export default AppStack;

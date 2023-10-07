@@ -10,16 +10,16 @@ import Teacher from './pages/Teacher';
 import store from './redux/store';
 import AppNav from './navigation/AppNav';
 import { AuthProvider } from './utility/AuthContext';
-
+import 'react-native-gesture-handler';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-   <AuthProvider>
-     <AppNav />
-   </AuthProvider>
-
+    <AuthProvider>
+        <AppNav />
+    </AuthProvider>
+     
     // <NavigationContainer>
     //   <Stack.Navigator>
     //    <Stack.Screen name="Login" options={{ title: "User Login" }} component={Login} />

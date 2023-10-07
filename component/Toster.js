@@ -7,7 +7,7 @@ const Toster = ({ message, type, duration = 5000, onClose }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(false);
-      onClose();
+      //onClose();
     }, duration);
 
     return () => clearTimeout(timer);
